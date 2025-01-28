@@ -1,0 +1,110 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  min-height: 35px;
+  min-width: 35px;
+  border-radius: 5px;
+}
+
+body {
+  background-color: #c1c8db;
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 320px));
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.container .card {
+  background-color: #f9f871;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 3px rgb(249, 248, 113);
+}
+.container .card .calculator {
+  background-color: #27b597;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px 3px rgb(39, 181, 151);
+  font-weight: 600;
+}
+.container .card .calculator .screen {
+  width: 100%;
+  min-height: 75px;
+  background-color: #e1f1ff;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px 3px rgb(39, 181, 151);
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .card .calculator .screen #ans {
+  margin-top: auto;
+}
+.container .card .calculator .operations {
+  display: grid;
+  gap: 10px;
+  grid-template-areas: "controls controls controls math" "numbers numbers numbers math" "numbers numbers numbers math" "numbers numbers numbers math" "numbers numbers numbers math";
+}
+.container .card .calculator .operations .control-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-area: controls;
+  transition: all 1s ease-in-out;
+  gap: 10px;
+}
+.container .card .calculator .operations .control-buttons button {
+  background-color: #005754;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0px 0px 2px 1px rgb(0, 87, 84);
+}
+.container .card .calculator .operations .math-operators {
+  grid-area: math;
+  display: grid;
+  gap: 10px;
+}
+.container .card .calculator .operations .math-operators button {
+  padding: 6px;
+  color: #005754;
+  background-color: #f9f871;
+  font-size: 25px;
+  border: 1px solid rgb(249, 248, 113);
+  box-shadow: 0px 0px 3px 1px rgb(249, 248, 113);
+}
+.container .card .calculator .operations .numbers {
+  grid-area: numbers;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.container .card .calculator .operations .numbers button {
+  background-color: #f1f1e6;
+  border: 1px solid #f1f1e6;
+  box-shadow: 0px 0px 3px 1px #f1f1e6;
+}
+.container #history {
+  display: none;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.container #history.effect {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*# sourceMappingURL=main.css.map */

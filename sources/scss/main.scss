@@ -1,0 +1,117 @@
+$primary: #c1c8db;
+$primary-dark: #2f3645;
+$secondary: #f9f871;
+$secondary-shadow: rgba(249, 248, 113, 1);
+$green: #27b597;
+$green-shadow: rgba(39, 181, 151, 1);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+button {
+  min-height: 35px;
+  min-width: 35px;
+  border-radius: 5px;
+}
+body {
+  background-color: $primary;
+  width: 100%;
+  height: 100vh;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 320px));
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  .card {
+    background-color: $secondary;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 3px $secondary-shadow;
+    .calculator {
+      background-color: $green;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 3px 3px $green-shadow;
+      font-weight: 600;
+      .screen {
+        width: 100%;
+        min-height: 75px;
+        background-color: #e1f1ff;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 5px 3px $green-shadow;
+        margin-bottom: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        #ans {
+          margin-top: auto;
+        }
+      }
+      .operations {
+        display: grid;
+        gap: 10px;
+        grid-template-areas:
+          "controls controls controls math"
+          "numbers numbers numbers math"
+          "numbers numbers numbers math"
+          "numbers numbers numbers math"
+          "numbers numbers numbers math";
+        .control-buttons {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-area: controls;
+          transition: all 1s ease-in-out;
+          gap: 10px;
+          button {
+            background-color: #005754;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0px 0px 2px 1px rgba(0, 87, 84, 1);
+          }
+        }
+        .math-operators {
+          grid-area: math;
+          display: grid;
+          gap: 10px;
+          button {
+            padding: 6px;
+            color: #005754;
+            background-color: $secondary;
+            font-size: 25px;
+            border: 1px solid $secondary-shadow;
+            box-shadow: 0px 0px 3px 1px $secondary-shadow;
+          }
+        }
+        .numbers {
+          grid-area: numbers;
+          display: grid;
+          gap: 10px;
+          grid-template-columns: 1fr 1fr 1fr;
+          button {
+            background-color: #f1f1e6;
+            border: 1px solid #f1f1e6;
+            box-shadow: 0px 0px 3px 1px #f1f1e6;
+          }
+        }
+      }
+    }
+  }
+  #history {
+    display: none;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    &.effect {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
