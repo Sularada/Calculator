@@ -1,110 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Karla", serif;
 }
 
 button {
   min-height: 35px;
   min-width: 35px;
   border-radius: 5px;
+  font-size: 30px;
+  transition: box-shadow 0.3s ease;
+}
+
+button.clicked {
+  box-shadow: none !important;
 }
 
 body {
-  background-color: #c1c8db;
+  background: url("https://wallpapercave.com/wp/BMrmUGk.jpg");
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  display: grid;
+  padding: 50px 10px;
+}
+
+.side-header {
+  font-size: 50px;
+  color: #f9f871;
+  text-shadow: 0 0 7px rgb(249, 248, 113), 0 0 7px rgb(249, 248, 113);
+  animation: lightHeaderAnimation 1s ease-in-out;
+  text-align: center;
 }
 
 .container {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 320px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
   align-items: center;
   justify-content: center;
   gap: 20px;
 }
-.container .card {
+.container .content .card {
   background-color: #f9f871;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 3px rgb(249, 248, 113);
+  animation: lightCardAnimation 1.5s ease-in-out;
 }
-.container .card .calculator {
+.container .content .card .calculator {
   background-color: #27b597;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 3px 3px rgb(39, 181, 151);
   font-weight: 600;
+  animation: calculaterAnimation 1.5s ease-in-out;
 }
-.container .card .calculator .screen {
+.container .content .card .calculator .screen {
+  overflow-x: scroll;
+  font-size: 30px;
   width: 100%;
-  min-height: 75px;
+  min-height: 120px;
   background-color: #e1f1ff;
   border-radius: 10px;
   box-shadow: inset 0px 0px 5px 3px rgb(39, 181, 151);
   margin-bottom: 10px;
   padding: 10px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-auto-flow: row;
 }
-.container .card .calculator .screen #ans {
-  margin-top: auto;
+.container .content .card .calculator .screen #ans {
+  text-align: end;
+  color: #27b597;
+  width: 100%;
 }
-.container .card .calculator .operations {
+.container .content .card .calculator .operations {
   display: grid;
   gap: 10px;
   grid-template-areas: "controls controls controls math" "numbers numbers numbers math" "numbers numbers numbers math" "numbers numbers numbers math" "numbers numbers numbers math";
 }
-.container .card .calculator .operations .control-buttons {
+.container .content .card .calculator .operations .control-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-area: controls;
   transition: all 1s ease-in-out;
   gap: 10px;
 }
-.container .card .calculator .operations .control-buttons button {
-  background-color: #005754;
+.container .content .card .calculator .operations .control-buttons button {
   border: none;
-  padding: 5px;
+  font-weight: 600;
   border-radius: 5px;
   color: #ffffff;
-  font-weight: 600;
+  background-color: #005754;
   box-shadow: 0px 0px 2px 1px rgb(0, 87, 84);
 }
-.container .card .calculator .operations .math-operators {
+.container .content .card .calculator .operations .math-operators {
   grid-area: math;
   display: grid;
   gap: 10px;
 }
-.container .card .calculator .operations .math-operators button {
-  padding: 6px;
+.container .content .card .calculator .operations .math-operators button {
   color: #005754;
   background-color: #f9f871;
-  font-size: 25px;
   border: 1px solid rgb(249, 248, 113);
   box-shadow: 0px 0px 3px 1px rgb(249, 248, 113);
 }
-.container .card .calculator .operations .numbers {
+.container .content .card .calculator .operations .numbers {
   grid-area: numbers;
   display: grid;
   gap: 10px;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.container .card .calculator .operations .numbers button {
+.container .content .card .calculator .operations .numbers .paranthesises {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.container .content .card .calculator .operations .numbers button {
   background-color: #f1f1e6;
   border: 1px solid #f1f1e6;
   box-shadow: 0px 0px 3px 1px #f1f1e6;
 }
-.container #history {
+.container .content #history {
+  overflow: scroll;
+  background-color: #f9f871;
+  font-size: 30px;
+  width: 0;
+  height: 0;
   display: none;
-  opacity: 1;
-  transition: opacity 0.5s ease;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 3px rgb(249, 248, 113);
+  padding: 20px;
+  color: #2f3645;
 }
-.container #history.effect {
-  opacity: 0;
-  pointer-events: none;
+.container .content #history h2 {
+  font-size: 30px;
+  padding-top: 10px;
+}
+.container .content #history h2 i {
+  margin-right: 10px;
+}
+.container .content #history ul {
+  margin: 10px 0 10px 20px;
+}
+.container .content #history ul li {
+  width: 100%;
+  border-bottom: 1px dotted #2f3645;
+}
+.container .content #history.clicked {
+  width: 100%;
+  height: 100%;
+  display: block;
+  animation: historyAnimation 0.5s linear;
+}
+
+@keyframes historyAnimation {
+  0% {
+    width: 0;
+    height: 100%;
+    display: none;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+@keyframes lightHeaderAnimation {
+  0% {
+    color: black;
+    text-shadow: none;
+  }
+  50% {
+    color: #f9f871;
+    text-shadow: 0 0 20px rgb(249, 248, 113), 0 0 20px rgb(249, 248, 113);
+  }
+  60% {
+    color: black;
+    text-shadow: none;
+  }
+  70% {
+    color: #f9f871;
+    text-shadow: 0 0 15px rgb(249, 248, 113), 0 0 15px rgb(249, 248, 113);
+  }
+  80% {
+    color: black;
+    text-shadow: none;
+  }
+  90% {
+    color: #f9f871;
+    text-shadow: 0 0 15px rgb(249, 248, 113), 0 0 15px rgb(249, 248, 113);
+  }
+  95% {
+    color: black;
+    text-shadow: none;
+  }
+  100% {
+    color: #f9f871;
+    text-shadow: 0 0 15px rgb(249, 248, 113), 0 0 15px rgb(249, 248, 113);
+  }
+}
+@keyframes lightCardAnimation {
+  0% {
+    background-color: black;
+    box-shadow: none;
+  }
+  35% {
+    background-color: #f9f871;
+    box-shadow: 0 0 20px rgb(249, 248, 113), 0 0 20px rgb(249, 248, 113);
+  }
+  45% {
+    background-color: black;
+    box-shadow: none;
+  }
+  50% {
+    background-color: #f9f871;
+    box-shadow: 0 0 15px rgb(249, 248, 113), 0 0 15px rgb(249, 248, 113);
+  }
+  70% {
+    background-color: black;
+    box-shadow: none;
+  }
+  75% {
+    background-color: #f9f871;
+    box-shadow: 0 0 15px rgb(249, 248, 113), 0 0 15px rgb(249, 248, 113);
+  }
+  85% {
+    background-color: black;
+    box-shadow: none;
+  }
+  100% {
+    background-color: #f9f871;
+    box-shadow: 0 0 15px rgb(249, 248, 113), 0 0 15px rgb(249, 248, 113);
+  }
+}
+@keyframes calculaterAnimation {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .side-header {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -40%);
+  }
+  .side-header h1 {
+    writing-mode: vertical-rl;
+    text-combine-upright: all;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

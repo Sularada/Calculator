@@ -10,51 +10,67 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="./css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/1618e98dac.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <div class="side-header">
+      <h1>
+        <span>C</span><span>A</span><span>L</span><span>C</span
+        ><!--<span>U</span
+        ><span>L</span><span>A</span><span>T</span><span>O</span><span>R</span> -->
+      </h1>
+    </div>
     <div class="container">
-      <div class="other-ops"></div>
-      <div class="card">
-        <div class="calculator">
-          <div class="screen">
-            <p id="ops"></p>
-            <p id="ans"></p>
-          </div>
-          <div class="operations">
-            <div class="control-buttons">
-              <button id="clearButton">AC</button>
-              <button id="deleteButton">DEL</button>
-              <button id="historyButton">HIS</button>
+      <div class="content">
+        <div class="card">
+          <div class="calculator">
+            <div class="screen">
+              <p id="ops"></p>
+              <p id="ans"></p>
             </div>
-            <div class="math-operators">
-              <button id="divisionOperator" class="item">÷</button>
-              <button id="multiplicationOperator" class="item">×</button>
-              <button id="minusOperator" class="item">-</button>
-              <button id="plusOperator" class="item">+</button>
-              <button id="equalOperator">=</button>
-            </div>
-            <div class="numbers">
-              <button id="nine" class="item">9</button>
-              <button id="eight" class="item">8</button>
-              <button id="seven" class="item">7</button>
-              <button id="six" class="item">6</button>
-              <button id="five" class="item">5</button>
-              <button id="four" class="item">4</button>
-              <button id="three" class="item">3</button>
-              <button id="two" class="item">2</button>
-              <button id="one" class="item">1</button>
-              <button id="zero" class="item">0</button>
-              <button id="parenthesis" class="item">(</button>
-              <button id="parenthesis" class="item">)</button>
+            <div class="operations">
+              <div class="control-buttons">
+                <button id="clearButton">AC</button>
+                <button id="deleteButton">DEL</button>
+                <button id="historyButton">HIS</button>
+              </div>
+              <div class="math-operators">
+                <button id="divisionOperator" class="item">÷</button>
+                <button id="multiplicationOperator" class="item">×</button>
+                <button id="minusOperator" class="item">-</button>
+                <button id="plusOperator" class="item">+</button>
+                <button id="equalOperator">=</button>
+              </div>
+              <div class="numbers">
+                <button id="nine" class="item">9</button>
+                <button id="eight" class="item">8</button>
+                <button id="seven" class="item">7</button>
+                <button id="six" class="item">6</button>
+                <button id="five" class="item">5</button>
+                <button id="four" class="item">4</button>
+                <button id="three" class="item">3</button>
+                <button id="two" class="item">2</button>
+                <button id="one" class="item">1</button>
+                <button id="zero" class="item">0</button>
+                <div class="paranthesises">
+                  <button id="parenthesis" class="item">(</button>
+                  <button id="parenthesis" class="item">)</button>
+                </div>
+                <button id="ansButton">Ans</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div id="history">
-        <h2>History</h2>
-        <ul id="historyList"></ul>
+        <div id="history">
+          <h2><i class="fa-solid fa-clock-rotate-left"></i>History</h2>
+          <ul id="historyList"></ul>
+        </div>
       </div>
     </div>
+
     <script src="main.js"></script>
   </body>
 </html>
