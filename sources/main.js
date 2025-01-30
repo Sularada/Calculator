@@ -53,7 +53,7 @@ function clearFunction() {
 
 function deleteFunction() {
   if (ops_content != "") {
-    ops_content = ops_content.slice(0, -1);
+    ops_content = String(ops_content).slice(0, -1);
     ops.innerHTML = ops_content;
   }
 }

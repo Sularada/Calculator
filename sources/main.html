@@ -15,36 +15,32 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body class="w-100">
     <div class="side-header">
-      <h1>
-        <span>C</span><span>A</span><span>L</span><span>C</span
-        ><!--<span>U</span
-        ><span>L</span><span>A</span><span>T</span><span>O</span><span>R</span> -->
-      </h1>
+      <h1><span>C</span><span>A</span><span>L</span><span>C</span></h1>
     </div>
-    <div class="container">
+    <div class="container w-100">
       <div class="content">
-        <div class="card">
-          <div class="calculator">
-            <div class="screen">
+        <div class="card bdr-radius-10">
+          <div class="calculator bdr-radius-10">
+            <div class="screen bdr-radius-10 w-100">
               <p id="ops"></p>
               <p id="ans"></p>
             </div>
-            <div class="operations">
-              <div class="control-buttons">
+            <div class="operations gap-10">
+              <div class="control-buttons gap-10">
                 <button id="clearButton">AC</button>
                 <button id="deleteButton">DEL</button>
                 <button id="historyButton">HIS</button>
               </div>
-              <div class="math-operators">
+              <div class="math-operators gap-10">
                 <button id="divisionOperator" class="item">÷</button>
                 <button id="multiplicationOperator" class="item">×</button>
                 <button id="minusOperator" class="item">-</button>
                 <button id="plusOperator" class="item">+</button>
                 <button id="equalOperator">=</button>
               </div>
-              <div class="numbers">
+              <div class="numbers gap-10">
                 <button id="nine" class="item">9</button>
                 <button id="eight" class="item">8</button>
                 <button id="seven" class="item">7</button>
@@ -55,7 +51,7 @@
                 <button id="two" class="item">2</button>
                 <button id="one" class="item">1</button>
                 <button id="zero" class="item">0</button>
-                <div class="paranthesises">
+                <div class="paranthesises gap-10">
                   <button id="parenthesis" class="item">(</button>
                   <button id="parenthesis" class="item">)</button>
                 </div>
@@ -64,7 +60,7 @@
             </div>
           </div>
         </div>
-        <div id="history">
+        <div id="history" class="bdr-radius-10">
           <h2><i class="fa-solid fa-clock-rotate-left"></i>History</h2>
           <ul id="historyList"></ul>
         </div>
